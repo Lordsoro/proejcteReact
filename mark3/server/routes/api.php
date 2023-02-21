@@ -25,7 +25,7 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
 //primer parametro es la ruta el segon el nom de la funció
 Route::post('register', [UserController::class, 'register']);
 Route::post('login', [UserController::class, 'login']);
-Route::post('pedido', [PedidoController::class, 'register'])->middleware('auth');
+Route::post('pedido', [PedidoController::class, 'register']);
 Route::get('list', [ProductController::class, 'list']);
 Route::get('list/{id}', [ProductController::class, 'show']);
 
