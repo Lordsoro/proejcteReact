@@ -1,6 +1,7 @@
 import React, { useContext, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { CartContext } from '../context/CartContext';
+import swal from 'sweetalert';
 
 export default function CartPage() {
     const { cart, setCart, setCartLength } = useContext(CartContext);
@@ -34,7 +35,7 @@ export default function CartPage() {
                 .then(response => {
                     console.log('Response:', response);
                     setCart([]);
-                    alert('pedido registrado');
+                    swal({ title: 'gracias', text: 'pedido registrado', button: "Aww yiss!" });
                     navigate('/');
                 });
 
