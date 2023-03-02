@@ -1,7 +1,9 @@
-import React, { useContext, useState } from 'react';
+import React, { useContext } from 'react';
 import { Link } from 'react-router-dom';
 import { useNavigate } from 'react-router-dom';
 import { CartContext } from '../context/CartContext';
+import 'bootstrap/dist/css/bootstrap.min.css';
+import 'bootstrap/dist/js/bootstrap.bundle.min.js';
 
 export default function Navbar() {
     const navigate = useNavigate();
@@ -13,11 +15,6 @@ export default function Navbar() {
         navigate('/')
     }
 
-    const [showMenu, setShowMenu] = useState(false);
-
-    function toggleMenu() {
-        setShowMenu(!showMenu);
-    }
 
     return (
         <div >
@@ -38,7 +35,7 @@ export default function Navbar() {
                         <div className="navbar-nav ms-auto">
                             {user ? (
                                 <>
-                                    <li className='userloged'>¡Bienvenido, {user}!</li>
+                                    <li className='userloged'>¡Bienvenido, {user.user}!</li>
                                     <li className='userloged'><Link to="/cart">🛒<span>{cartLength}</span></Link></li>
                                     <li className='userloged' onClick={Logout}><Link to="/">Logout</Link></li>
                                 </>
