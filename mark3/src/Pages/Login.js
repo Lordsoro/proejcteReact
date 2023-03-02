@@ -1,6 +1,7 @@
 import { React, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import Input from '../components/Input';
+import swal from 'sweetalert';
 
 
 export default function Login() {
@@ -37,7 +38,7 @@ export default function Login() {
                 localStorage.setItem("user-info", JSON.stringify(jsonData));
                 navigate('/');
             } else {
-                alert('email o contraseña incorrectos');
+                swal('email o contraseña incorrectos');
             }
 
 
