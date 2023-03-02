@@ -25,19 +25,19 @@ const mongoAtlas = 'mongodb+srv://salva:mongo1212@cluster0.0rp8shz.mongodb.net/?
 const key = process.env.MONGODB_ATLAS_API_KEY;
 
 mongoose
-    .connect(key, {
-        useNewUrlParser: true,
-        useUnifiedTopology: true,
-    })
-    .then(() => {
-        console.log('la conexion ha sido realizada con éxito');
-        app.listen(port, () => {
-            console.log(`Server listening on port ${port}`);
-        });
-    })
-    .catch((err) => {
-        console.error('Failed to connect to MongoDB', err);
+  .connect(key, {
+    useNewUrlParser: true,
+    useUnifiedTopology: true,
+  })
+  .then(() => {
+    console.log('la conexion ha sido realizada con éxito');
+    app.listen(port, () => {
+      console.log(`Server listening on port ${port}`);
     });
+  })
+  .catch((err) => {
+    console.error('Failed to connect to MongoDB', err);
+  });
 
 
 
