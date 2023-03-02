@@ -1,4 +1,4 @@
-import React, { useContext } from 'react';
+import React, { useContext, useState } from 'react';
 import { Link } from 'react-router-dom';
 import { useNavigate } from 'react-router-dom';
 import { CartContext } from '../context/CartContext';
@@ -9,27 +9,37 @@ export default function Navbar() {
     const navigate = useNavigate();
     const user = JSON.parse(localStorage.getItem('user-info'))
     const { cartLength } = useContext(CartContext);
+    const [collapse, setCollapse] = useState(true);
 
     function Logout() {
         localStorage.removeItem("user-info")
         navigate('/')
     }
 
+    function handleCollapse() {
+        setCollapse(!collapse);
+    }
+
+    function handleMenuClick() {
+        if (!collapse) {
+            handleCollapse();
+        }
+    }
 
     return (
-        <div >
+        <div>
             <nav className="navbar navbar-expand-lg">
                 <div className="container-fluid">
-                    <button type="button" className="navbar-toggler" data-bs-toggle="collapse" data-bs-target="#navbarCollapse">
+                    <button type="button" className="navbar-toggler" onClick={handleCollapse}>
                         <span className="navbar-toggler-icon"></span>
                     </button>
-                    <div className="collapse navbar-collapse" id="navbarCollapse">
+                    <div className={`collapse navbar-collapse ${collapse ? '' : 'show'}`} id="navbarCollapse">
                         <div className="navbar-nav">
-                            <li id='logo'><Link to="/">Home</Link></li>
-                            <li><Link to='/invierno'>Outfits Invierno</Link></li>
-                            <li><Link to="/verano">Outfits Verano</Link></li>
-                            <li><Link to="/primavera">Outfits EntreTiempo</Link></li>
-                            <li><a href="/accesorios">Accesorios</a></li>
+                            <li id='logo' onClick={handleMenuClick}><Link to="/">Home</Link></li>
+                            <li onClick={handleMenuClick}><Link to='/invierno'>Outfits Invierno</Link></li>
+                            <li onClick={handleMenuClick}><Link to="/verano">Outfits Verano</Link></li>
+                            <li onClick={handleMenuClick}><Link to="/primavera">Outfits EntreTiempo</Link></li>
+                            <li onClick={handleMenuClick}><a href="/accesorios">Accesorios</a></li>
 
                         </div>
                         <div className="navbar-nav ms-auto">
