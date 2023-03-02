@@ -25,7 +25,7 @@ const mongoAtlas = 'mongodb+srv://salva:mongo1212@cluster0.0rp8shz.mongodb.net/?
 const key = process.env.MONGODB_ATLAS_API_KEY;
 
 mongoose
-  .connect(key, {
+  .connect(mongoAtlas, {
     useNewUrlParser: true,
     useUnifiedTopology: true,
   })
