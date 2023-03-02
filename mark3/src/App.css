@@ -2,7 +2,8 @@
   text-align: center;
 }
 
-ul {
+ul,
+.container-fluid {
   list-style-type: none;
   margin: 0;
   padding: 0;
@@ -24,9 +25,15 @@ li a {
   text-decoration: none;
 }
 
+.navbar>li {
+  height: 100%;
+}
 
-li a:hover {
-  background-color: #111;
+
+.navbar-nav li:hover a {
+  background-color: black;
+  display: block;
+  height: 100%;
 }
 
 
@@ -41,7 +48,7 @@ h4 {
 .footer {
 
   left: 0;
-  bottom: 0;
+  bottom: 20rem;
   width: 100%;
   background-color: rgb(24, 63, 95);
   color: white;
@@ -114,7 +121,8 @@ td {
   margin: auto;
   display: inline-block;
   position: relative;
-  transition: 0.2s
+  transition: 0.2s;
+  z-index: 1;
 }
 
 .itemCard:hover {
@@ -132,6 +140,11 @@ td {
   margin-top: 10px;
 }
 
+.navbar-toggler-icon {
+  color: white;
+}
+
+/* 
 @media (max-width: 768px) {
   .navBar ul {
     display: none;
@@ -166,3 +179,7 @@ td {
     cursor: pointer;
   }
 }
+
+.m4 {
+  background-color: rgb(24, 63, 95);
+} */
