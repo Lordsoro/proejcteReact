@@ -1,6 +1,7 @@
 import { React, useState } from 'react'
 import { useNavigate } from 'react-router-dom';
 import Input from '../components/Input';
+import swal from 'sweetalert';
 
 
 export default function Signup() {
@@ -55,7 +56,7 @@ export default function Signup() {
                 localStorage.setItem("user-info", JSON.stringify(jsonData));
                 navigate('/');
             } else {
-                alert('error email ya registrado');
+                swal('error email ya registrado');
             }
 
         } catch (error) {
