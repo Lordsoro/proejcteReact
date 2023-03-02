@@ -2,6 +2,7 @@ import React, { useState, useEffect, useContext } from 'react'
 import Button from 'react-bootstrap/Button';
 import Card from 'react-bootstrap/Card';
 import { CartContext } from '../context/CartContext';
+import swal from 'sweetalert';
 
 
 export default function Verano() {
@@ -28,7 +29,7 @@ export default function Verano() {
 
     const handleClick = (item) => {
         if (!isLoggedIn) {
-            alert("Solo los usuarios pueden añadir productos al carrito");
+            swal("Solo los usuarios pueden añadir productos al carrito");
             return;
         }
 
