@@ -22,10 +22,10 @@ app.use(passport.session());
 app.use(cors());
 
 const mongoAtlas = 'mongodb+srv://salva:mongo1212@cluster0.0rp8shz.mongodb.net/?retryWrites=true&w=majority'
-
+const key = process.env.MONGODB_ATLAS_API_KEY;
 
 mongoose
-    .connect(mongoAtlas, {
+    .connect(key, {
         useNewUrlParser: true,
         useUnifiedTopology: true,
     })
